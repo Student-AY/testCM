@@ -7,12 +7,16 @@ import {useCamera} from 'react-native-camera-hooks';
 import RNFS from 'react-native-fs';
 export default function App() {
   const [{cameraRef}, {takePicture}] = useCamera(null);
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * 5000);
+  }
 
   const CapturePicture = async () => {
     const data = await takePicture();
     console.log(data.uri);
     const filePath = data.uri;
-    const newFilePath = RNFS.ExternalDirectoryPath + '/test01.jpg';
+    const newFilePath =
+      RNFS.ExternalDirectoryPath + '/' + getRandomInt() + '.jpg';
     RNFS.moveFile(filePath, newFilePath)
       .then(() => {
         console.log('imaged moved from', filePath, ' to ', newFilePath);

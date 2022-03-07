@@ -1,4 +1,11 @@
-import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import React from 'react';
 
 import {RNCamera} from 'react-native-camera';
